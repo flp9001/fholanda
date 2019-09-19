@@ -3,14 +3,15 @@ upstream app_server_fholanda {
 }
 
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server ipv6only=on;
+    server_name fholanda.com www.fholanda.com;
+    listen 80 ;
+    listen [::]:80 ;
 
     root /usr/share/nginx/html;
     index index.html index.htm;
 
     client_max_body_size 4G;
-    server_name wilber;
+
 
     keepalive_timeout 5;
 

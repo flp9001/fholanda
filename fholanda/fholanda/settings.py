@@ -25,7 +25,7 @@ SECRET_KEY = '@bi&@@xw!89gsu#(o6trbzdd&1q)6g77a==7ulu6^@2_!yp8j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fholanda.com', 'www.fholanda.com']
 
 
 # Application definition
