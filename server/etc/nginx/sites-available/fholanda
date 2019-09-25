@@ -17,12 +17,12 @@ server {
 
     # Your Django project's media files - amend as required
     location /media  {
-        alias /home/django/fholanda/fholanda/media;
+        alias /home/django/fholanda.com/fholanda/media;
     }
 
     # your Django project's static files - amend as required
     location /static {
-        alias /home/django/fholanda/fholanda/static;
+        alias /home/django/fholanda.com/fholanda/static;
     }
 
     # Proxy the static assests for the Django Admin panel
@@ -38,5 +38,14 @@ server {
 
             proxy_pass http://app_server_fholanda;
     }
+
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/fholanda.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/fholanda.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 
 }
