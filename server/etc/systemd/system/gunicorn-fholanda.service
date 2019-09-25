@@ -5,7 +5,12 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/django/fholanda.com
-ExecStart=/home/django/.virtualenvs/fholanda/bin/gunicorn --name=wilber --pythonpath=/home/django/fholanda.com/fholanda/ --bind unix:/home/django/gunicorn-fholanda.socket --config /etc/gunicorn.d/gunicorn.py fholanda.wsgi:application
+ExecStart=/home/django/.virtualenvs/fholanda/bin/gunicorn \
+        --name=fholanda \
+        --pythonpath=/home/django/fholanda.com/fholanda/ \
+        --bind unix:/home/django/gunicorn-fholanda.socket \
+        --config /etc/gunicorn.d/gunicorn.py config.wsgi:application
+
 Restart=always
 SyslogIdentifier=gunicorn-fholanda
 User=django
