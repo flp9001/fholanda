@@ -4,8 +4,6 @@ upstream app_server_fholanda {
 
 server {
     server_name fholanda.com www.fholanda.com;
-    listen 80 ;
-    listen [::]:80 ;
 
     root /usr/share/nginx/html;
     index index.html index.htm;
@@ -46,6 +44,30 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/fholanda.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+
+
+}
+
+
+server {
+    if ($host = www.fholanda.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = fholanda.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name fholanda.com www.fholanda.com;
+    listen 80 ;
+    listen [::]:80 ;
+    return 404; # managed by Certbot
+
+
 
 
 }
