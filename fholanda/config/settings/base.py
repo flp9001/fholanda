@@ -19,7 +19,7 @@ APPS_DIR = ROOT_DIR.path("apps")
 
 
 env = environ.Env()
-
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
