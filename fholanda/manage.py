@@ -17,8 +17,7 @@ def main():
 
     # This allows easy placement of apps within the interior fholanda directory:
     current_path = dirname(abspath(__file__))
-    sys.path.append(join(current_path, "fholanda"))
-
+    sys.path.append(join(current_path, "apps"))
     execute_from_command_line(sys.argv)
 
 

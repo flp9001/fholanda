@@ -15,7 +15,7 @@ from django.core.wsgi import get_wsgi_application
 
 # This allows easy placement of apps within the interior of fholanda directory
 app_path = abspath(join(dirname(abspath(__file__)), os.pardir))
-sys.path.append(join(app_path, "fholanda"))
+sys.path.append(join(app_path, "apps"))
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.prod')
