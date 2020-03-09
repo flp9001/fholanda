@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import environ
+from django.utils.translation import gettext_lazy as _
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
@@ -31,7 +32,7 @@ SECRET_KEY = '@bi&@@xw!89gsu#(o6trbzdd&1q)6g77a==7ulu6^@2_!yp8j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fholanda.com', 'www.fholanda.com']
+ALLOWED_HOSTS = ['fholanda.com', 'www.fholanda.com', 'fholanda.com.br', 'www.fholanda.com.br']
 
 
 # Application definition

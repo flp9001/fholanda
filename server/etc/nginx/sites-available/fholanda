@@ -3,7 +3,7 @@ upstream app_server_fholanda {
 }
 
 server {
-    server_name fholanda.com www.fholanda.com;
+    server_name fholanda.com www.fholanda.com fholanda.com.br www.fholanda.com.br;
 
     root /usr/share/nginx/html;
     index index.html index.htm;
@@ -40,8 +40,8 @@ server {
 
     listen [::]:443 ssl; # managed by Certbot
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/fholanda.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/fholanda.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/fholanda.com-0001/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/fholanda.com-0001/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
@@ -60,14 +60,19 @@ server {
     if ($host = fholanda.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
+    
+    if ($host = www.fholanda.com.br) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
 
 
-    server_name fholanda.com www.fholanda.com;
+    if ($host = fholanda.com.br) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name fholanda.com www.fholanda.com fholanda.com.br www.fholanda.com.br;
     listen 80 ;
     listen [::]:80 ;
     return 404; # managed by Certbot
-
-
-
-
 }
